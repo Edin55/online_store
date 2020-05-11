@@ -12,19 +12,19 @@ const Carousel = () => {
                 </ol>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={"http://localhost:8080/assets/books-1.jpg"} />
+                        <img src={"http://localhost:8080/assets/books-1.jpg"}  alt={"img-1"}/>
                     </div>
                     <div className="carousel-item">
-                       <img src={"http://localhost:8080/assets/books-2.jpg"} />
+                       <img src={"http://localhost:8080/assets/books-2.jpg"} alt={"img-1"}/>
 
                     </div>
                     <div className="carousel-item">
-                        <img src={"http://localhost:8080/assets/books-3.jpg"} />
+                        <img src={"http://localhost:8080/assets/books-3.jpg"} alt={"img-1"}/>
                     </div>
                     <div className="carousel-caption text-center ">
                         <h1>Welcome to the Book<span className={"orange"}>Store</span></h1>
                         <p>DISCOVER THE BEST BOOKS WITH US</p>
-                        <p><a className="btn btn-lg btn-warning text-white" href="#" role="button">Shop Books</a></p>
+                        <p><a className="btn btn-lg btn-warning text-white" href="/books" role="button">Shop Books</a></p>
                     </div>
                 </div>
                 <a className="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">

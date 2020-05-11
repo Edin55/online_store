@@ -6,7 +6,6 @@ const BookService  = {
         return axios.get("/api/books");
     },
     fetchBookById: (id) => {
-
         return axios.get(`/api/books/${id}`);
     },
     searchBookByTitle: (title) => {

@@ -24,7 +24,7 @@ class Header extends React.Component<{}> {
         }else{
             button =
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle text-muted" href="#" id="navbarDropdownMenuLink"
+                        <a className="nav-link dropdown-toggle text-muted" href="/profile" id="navbarDropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             My Account
                         </a>
@@ -40,7 +40,7 @@ class Header extends React.Component<{}> {
             <header>
                 <nav className="navbar navbar-expand-md navbar-light navbar-fixed bg-light">
                     <div className={"container"}>
-                        <a className="navbar-brand bookstore text-muted" href="#">Book<span
+                        <a className="navbar-brand bookstore text-muted" href="/">Book<span
                             className={"orange"}>Store</span></a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarCollapse"
@@ -60,7 +60,7 @@ class Header extends React.Component<{}> {
                                 </li>
                             </ul>
                             <div className={"pr-3"}>
-                                <a href={"#"}><i className="fa fa-lg fa-shopping-cart text-muted" aria-hidden="true"></i></a>
+                                <a href={"/cart"}><i className="fa fa-lg fa-shopping-cart text-muted" aria-hidden="true"></i></a>
                             </div>
                             <FormSearch onSearch={this.props.searchBooks}/>
                             {button}

@@ -15,7 +15,7 @@ const About = () => {
                                 Fusce dapibus, tellus ac cursus commodo.</p>
                         </div>
                         <div className="col-md-5">
-                            <img src={"http://localhost:8080/assets/about.jpg"} />
+                            <img src={"http://localhost:8080/assets/about.jpg"} alt={"img-1"}/>
                         </div>
                     </div>
                     <hr className={"featurette-divider-bottom"} color={'transparent'}/>

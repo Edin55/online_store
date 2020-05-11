@@ -1,6 +1,10 @@
 import React, {Component} from "react";
 import Book from "./Book";
 import BookService from "../../repository/bookRepository";
+import 'datatables.net-dt/css/jquery.dataTables.min.css'
+import Table from "./Table";
+
+
 class Books extends Component{
 
     constructor(props) {
@@ -16,7 +20,6 @@ class Books extends Component{
         BookService
             .fetchBooks()
             .then((response) => {
-
                 this.setState({
                     books: response.data
                 });
@@ -38,7 +41,7 @@ class Books extends Component{
 
             list =
                 <div className={"col-sm-12"}>
-                   <table>
+                   <table >
                        <thead>
                             <tr>
                                 <th></th>
@@ -54,10 +57,11 @@ class Books extends Component{
         return (
             <div className="container mt-5 pt-5">
                 <div className={"row"}>
-
                     {list}
                 </div>
             </div>)
     }
 }
+
+
 export default Books;

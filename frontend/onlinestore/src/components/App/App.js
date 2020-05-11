@@ -18,6 +18,7 @@ import Contact from "../Home/Contact/contact";
 
 class App extends Component {
 
+
     searchBook(title){
         return BookService.searchBookByTitle(title);
     }
@@ -30,10 +31,10 @@ class App extends Component {
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
                             <Route exact path="/" component={Home}/>
-                            <Route path="/books" exact component={Books}/>
                             <Route path={"/login"} component={Login}/>
                             <Route path={"/register"} component={Register}/>
                             <Route path="/profile" component={Profile}/>
+                            <Route path="/books" exact component={Books}/>
                             <Route path={"/books/details/:id"} component={BookDetails}/>
                         </Switch>
                     </Suspense>
