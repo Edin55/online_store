@@ -1,13 +1,16 @@
 import React, {Component} from "react";
-import BookService from "../../repository/bookRepository";
+import BookService from "../../repository/bookService";
 class BookDetails extends Component{
     constructor(props) {
         super(props);
         this.state = {
             book: {},
             isBook: false,
-            error : ''
-        }
+            error : '',
+            qty: 1
+        };
+        this.onFormSubmit = this.onFormSubmit.bind(this);
+
     }
     componentDidMount(): void {
         this.loadBookById();
@@ -31,9 +34,22 @@ class BookDetails extends Component{
 
     }
 
+    handleChange(event){
+        this.setState({
+            qty: event.target.value
+        })
+    }
+    onFormSubmit(e) {
+        debugger;
+        e.preventDefault();
+        console.log(this);
+        this.props.handleAddToCart(this.state.book, this.state.qty);
+        window.alert("Succesfully added to cart !!!")
+
+    }
     render(){
         let bookDetails = (<div className={"container"}>
-            <form method="post" action="/shoppingCart/addItem">
+            <form method="post" onSubmit={this.onFormSubmit}>
                 <input hidden="hidden" id="id" name="id" value="1" />
                 <div className="row" style={{marginTop: "120px"}}>
                     <div className="col-xs-3">
@@ -66,7 +82,7 @@ class BookDetails extends Component{
                                                 <p>List Price: <span style={{textDecoration: "line-through"}}>$<span>{this.state.book.listPrice}</span></span></p>
                                                 <p>You save: $<span>{parseFloat(this.state.book.listPrice - this.state.book.ourPrice).toFixed(2)}</span></p>
                                                 <span>Qty: </span>
-                                                <select name="qty">
+                                                <select name="qty" onChange={this.handleChange}>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>

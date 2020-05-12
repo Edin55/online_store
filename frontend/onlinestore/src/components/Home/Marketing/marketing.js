@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import BookService from "../../../repository/bookRepository";
+import BookService from "../../../repository/bookService";
 
 class Marketing extends Component {
 

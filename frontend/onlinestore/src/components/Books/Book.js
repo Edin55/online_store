@@ -17,15 +17,18 @@ class Book extends Component{
                                 </a>
                             </div>
                             <div className="card-body col-sm-8 offset-1">
-                                <a href={"/books/details/"+this.props.book.id}><h2>{this.props.book.title}</h2></a> <span>Publication date</span>
-                                <p >{this.props.book.author}</p>
-                                <span> Format</span> <span><span> pages</span></span><br/>
+                                <a href={"/books/details/"+this.props.book.id}><h2 className={"card-title"}>{this.props.book.title}</h2></a>
+                                <h6>Publication date :</h6> <span>{this.props.book.date}</span>
+                                <h6 className={"d-inline"}>Author : </h6> <span>{this.props.book.author}</span> <br/>
+                                <h6 className={"d-inline"}>Format : </h6><span>{this.props.book.format}</span> <br/>
+                                <h6 className={"d-inline"}>Pages : </h6><span>{this.props.book.numberOfPages}</span> <br/>
+                                <h5 className={"text-amber"}>
+                                    <h6 className={"d-inline"}>Our Price : </h6><span>{this.props.book.ourPrice}$<span></span></span>
 
-                                <span>$<span></span></span>
+                                </h5>
+                                <h6 className={"d-inline "}>List Price : </h6><s><span>{this.props.book.listPrice}$<span></span></span></s>
 
-                                <span>$<span></span></span>
 
-                                <p> Lorem Ipsum</p>
                             </div>
                         </div>
                     </div>

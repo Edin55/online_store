@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Book from "./Book";
-import BookService from "../../repository/bookRepository";
+import BookService from "../../repository/bookService";
 import 'datatables.net-dt/css/jquery.dataTables.min.css'
 
 
@@ -16,6 +16,7 @@ class Books extends Component{
         this.loadBooks();
     }
     loadBooks() {
+        debugger;
         BookService
             .fetchBooks()
             .then((response) => {
@@ -54,7 +55,20 @@ class Books extends Component{
         }
 
         return (
-            <div className="container mt-5 pt-5">
+            <div className="container mt-5 pt-5 pb-5">
+                <div className={"row offset-2 pb-5 mb-5 text-muted"}>
+                    <div className={'col-sm-4 pt-2'}>
+                        <hr size="30" color="gray" width={'285em'}/>
+                    </div>
+                    <div className={'col-sm-2 '}>
+                        <h1 className={'text-center'}>
+                            BOOKS
+                        </h1>
+                    </div>
+                    <div className={'col-sm-4 pt-2'}>
+                        <hr size="30" color="gray" width={'300em'}/>
+                    </div>
+                </div>
                 <div className={"row"}>
                     {list}
                 </div>

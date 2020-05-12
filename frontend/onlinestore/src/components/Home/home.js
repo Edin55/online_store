@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import BookService from "../../repository/bookRepository";
+import BookService from "../../repository/bookService";
 import Carousel from "./Carousel/carousel";
 import Marketing from "./Marketing/marketing";
 import About from "./About/About";

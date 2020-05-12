@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "react-currency-formatter": "^1.1.0",
     "react-router-dom": "^5.1.2"
   }
 }

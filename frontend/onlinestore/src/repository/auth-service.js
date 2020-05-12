@@ -27,6 +27,7 @@ class AuthService {
     logout() {
         debugger;
         localStorage.removeItem("user");
+        localStorage.removeItem("shoppingCart");
     }
 
     register(username, email, password) {

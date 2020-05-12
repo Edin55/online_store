@@ -1,5 +1,9 @@
 package com.edinelezi.onlinestore.model.security;
 
+import com.edinelezi.onlinestore.model.Order;
+import com.edinelezi.onlinestore.model.ShoppingCart;
+import lombok.Data;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,6 +19,7 @@ import javax.validation.constraints.Size;
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,18 +47,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
-//    private ShoppingCart shoppingCart;
-//
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private List<UserShipping> userShippingList;
-//
-//
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    private List<UserPayment> userPaymentList;
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Order> orderList;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    private ShoppingCart shoppingCart;
+
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orderList;
 
     public User() {
     }
