@@ -48,25 +48,76 @@ class Marketing extends Component {
                                 <hr size="30" color="black" width={'300em'}/>
                             </div>
                         </div>
-                        { this.state && this.state.books && (<div className={"row"}>
-                            <div className={"col-sm-2"}>
-                                <div className="card mb-3">
-                                    <img className="card-img-top" src={"this.state.books"} alt="Card image cap" />
-                                        <div className="card-body">
-                                            <h5 className="card-title">{this.state.books[0].title}</h5>
-                                            <p className="card-text">This is a wider card with supporting text below as
-                                                a natural lead-in to additional content. This content is a little bit
-                                                longer.</p>
-                                            <p className="card-text"><small className="text-muted">Last updated 3 mins
-                                                ago</small></p>
-                                            </div>
-                                </div>
-                            </div>
-                        </div>)}
-
+                           <div className={"row"}>
+                               <div className={"col-sm-3 p-2"}>
+                                   <div className="card mb-3">
+                                       <img className="card-img-top" src={"http://localhost:8080/assets/1.png"} alt="Card image cap"  width={"130px"} height={"320px"}/>
+                                       <div className="card-body">
+                                           <h5 className="card-title">Miles Davis for Solo Guitar</h5>
+                                           <p className="card-text">Arts & Literature</p>
+                                           <p className="card-text"><small className="text-muted">Last updated 3 mins
+                                               ago</small></p>
+                                       </div>
+                                   </div>
+                                   <a href={"/books/details/1"}>
+                                       <button className={"btn btn-warning text-white"}>
+                                           Read more >>
+                                       </button>
+                                   </a>
+                               </div>
+                               <div className={"col-sm-3 p-2"}>
+                                   <div className="card mb-3">
+                                       <img className="card-img-top" src={"http://localhost:8080/assets/6.png"} alt="Card image cap" width={"130px"} height={"320px"} />
+                                       <div className="card-body">
+                                           <h5 className="card-title">The First-Time Manager</h5>
+                                           <p className="card-text">Arts & Literature</p>
+                                           <p className="card-text"><small className="text-muted">Last updated 3 mins
+                                               ago</small></p>
+                                       </div>
+                                   </div>
+                                   <a href={"/books/details/6"}>
+                                       <button className={"btn btn-warning text-white"}>
+                                           Read more >>
+                                       </button>
+                                   </a>
+                               </div>
+                               <div className={"col-sm-3 p-2"}>
+                                   <div className="card mb-3">
+                                       <img className="card-img-top" src={"http://localhost:8080/assets/11.png"} alt="Card image cap"  width={"130px"} height={"320px"}/>
+                                       <div className="card-body">
+                                           <h5 className="card-title">Ordinary Grace</h5>
+                                           <p className="card-text">Fiction</p>
+                                           <p className="card-text"><small className="text-muted">Last updated 3 mins
+                                               ago</small></p>
+                                       </div>
+                                   </div>
+                                   <a href={"/books/details/11"}>
+                                       <button className={"btn btn-warning text-white"}>
+                                           Read more >>
+                                       </button>
+                                   </a>
+                               </div>
+                               <div className={"col-sm-3 p-2"}>
+                                   <div className="card mb-3">
+                                       <img className="card-img-top" src={"http://localhost:8080/assets/12.png"} alt="Card image cap"  width={"130px"} height={"320px"}/>
+                                       <div className="card-body">
+                                           <h5 className="card-title">Java: A Beginner's Guide</h5>
+                                           <p className="card-text">Programming</p>
+                                           <p className="card-text"><small className="text-muted">Last updated 3 mins
+                                               ago</small></p>
+                                       </div>
+                                   </div>
+                                   <a href={"/books/details/12"}>
+                                       <button className={"btn btn-warning text-white"}>
+                                           Read more >>
+                                       </button>
+                                   </a>
+                               </div>
+                           </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+
         )
 
     }

@@ -1,31 +1,151 @@
-import React from "react";
+import React, { Component } from "react";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
 
-const login = () => {
-    return (
-        <div className={"container pt-5"}>
-            <div className={"row"}>
-                <div className={"col-sm-3"}></div>
-                <div className={"col-sm-6"}>
-                    <form>
-                        <p className="h4 text-center mb-4">Sign in</p>
-                        <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-                            Your email
-                        </label>
-                        <input type="email" id="defaultFormLoginEmailEx" className="form-control" />
-                        <br />
-                        <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
-                            Your password
-                        </label>
-                        <input type="password" id="defaultFormLoginPasswordEx" className="form-control" />
-                        <div className={"mt-4 text-center"}>
-                            <input type={"submit"} text={"Login"} className={"btn btn-warning btn-lg text-white"} />
-                        </div>
+import AuthService from "../../../repository/auth-service";
 
-                    </form>
-                </div>
+const required = value => {
+    if (!value) {
+        return (
+            <div className="alert alert-danger" role="alert">
+                This field is required!
             </div>
-        </div>
-    );
+        );
+    }
 };
 
-export default login;
+export default class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.handleLogin = this.handleLogin.bind(this);
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+
+        this.state = {
+            username: "",
+            password: "",
+            loading: false,
+            message: ""
+        };
+    }
+
+    onChangeUsername(e) {
+        this.setState({
+            username: e.target.value
+        });
+    }
+
+    onChangePassword(e) {
+        this.setState({
+            password: e.target.value
+        });
+    }
+
+    handleLogin(e) {
+        e.preventDefault();
+        debugger;
+        this.setState({
+            message: "",
+            loading: true
+        });
+
+        this.form.validateAll();
+        debugger;
+        if (this.checkBtn.context._errors.length === 0) {
+            AuthService.login(this.state.username, this.state.password).then(
+                () => {
+                    this.props.history.push("/profile");
+                    window.location.reload();
+                },
+                error => {
+                    const resMessage =
+                        (error.response &&
+                            error.response.data &&
+                            error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+
+                    this.setState({
+                        loading: false,
+                        message: resMessage
+                    });
+                }
+            );
+        } else {
+            this.setState({
+                loading: false
+            });
+        }
+    }
+
+    render() {
+        return (
+            <div className="col-md-6 offset-3 p-5">
+                <div className="card card-container p-3">
+                    <img
+                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        alt="profile-img"
+                        className="profile-img-card img-thumbnail w-50 offset-3"
+                    />
+
+                    <Form
+                        onSubmit={this.handleLogin}
+                        ref={c => {
+                            this.form = c;
+                        }}
+                    >
+                        <div className="form-group pt-5">
+                            <label htmlFor="username">Username</label>
+                            <Input
+                                type="text"
+                                className="form-control"
+                                name="username"
+                                value={this.state.username}
+                                onChange={this.onChangeUsername}
+                                validations={[required]}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="password">Password</label>
+                            <Input
+                                type="password"
+                                className="form-control"
+                                name="password"
+                                value={this.state.password}
+                                onChange={this.onChangePassword}
+                                validations={[required]}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <button
+                                className="btn btn-warning btn-block text-white"
+                                disabled={this.state.loading}
+                            >
+                                {this.state.loading && (
+                                    <span className="spinner-border spinner-border-sm"></span>
+                                )}
+                                <span>Login</span>
+                            </button>
+                        </div>
+                        {this.state.message && (
+                            <div className="form-group">
+                                <div className="alert alert-danger" role="alert">
+                                    {this.state.message}
+                                </div>
+                            </div>
+                        )}
+                        <CheckButton
+                            style={{ display: "none" }}
+                            ref={c => {
+                                this.checkBtn = c;
+                            }}
+                        />
+                    </Form>
+                </div>
+            </div>
+        );
+    }
+}

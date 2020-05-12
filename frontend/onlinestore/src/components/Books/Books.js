@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import Book from "./Book";
 import BookService from "../../repository/bookRepository";
 import 'datatables.net-dt/css/jquery.dataTables.min.css'
-import Table from "./Table";
 
 
 class Books extends Component{
@@ -31,8 +30,8 @@ class Books extends Component{
         let list;
         if(this.state.books.length === 0){
             list =
-                <div className={"col-sm-12"}>
-                    <h4 className={"text-muted"}>
+                <div className={"col-sm-12 pb-5 mb-5"}>
+                    <h4 className={"text-muted text-center alert alert-info p-5"}>
                         Sorry there are no books available right now.
                     </h4>
                 </div>

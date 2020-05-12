@@ -1,24 +1,32 @@
 import React from 'react';
 import FormSearch from "../FormSearch/formSearch";
 import {Link} from "react-router-dom";
+import AuthService from "../../../repository/auth-service";
 
 class Header extends React.Component<{}> {
     constructor(props) {
         super(props);
-        this.state = {
-            user:{},
-            isLoggedIn: true
+        this.logOut = this.logOut.bind(this);
 
-        }
+    }
+
+    logOut() {
+        debugger;
+        AuthService.logout();
+        window.location = "http://localhost:3000/";
     }
     render() {
 
-        const isLoggedIn = this.state.isLoggedIn;
+        const isLoggedIn = this.props.isLoggedIn;
         let button;
         if(!isLoggedIn){
             button = <div className={"row"}>
                 <form className="col-sm-12 form-inline mt-2 mt-md-0 ml-3">
-                    <a className="btn btn-outline-warning my-2 my-sm-0" href={"/login"}>Login</a>
+                    <a className="btn btn-warning  my-2 my-sm-0 text-white" href={"/login"}>Login</a>
+                    <div className={"p-1"}>
+
+                    </div>
+                    <a className="btn btn-outline-secondary my-2 my-sm-0 text-muted" href={"/register"}>Register</a>
                 </form>
             </div>;
         }else{
@@ -31,7 +39,7 @@ class Header extends React.Component<{}> {
                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a className="dropdown-item" href={"/profile"}>Profile</a>
                             <form className="form-inline">
-                                <a className="dropdown-item btn btn-link text-danger" href={"http://localhost:8080"}>Logout</a>
+                                <a className="dropdown-item btn btn-link text-danger" onClick={this.logOut}>Logout</a>
                             </form>
                         </div>
                     </li>;

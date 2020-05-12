@@ -4809,3 +4809,6 @@ footer .copy-right .share span:hover {
 .panel-danger>.panel-footer+.panel-collapse>.panel-body {
   border-bottom-color:#ebccd1;
 }
+.text-size-40{
+  font-size: 2.0em;
+}

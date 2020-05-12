@@ -13,7 +13,7 @@ class Book extends Component{
                         <div className="row p-4">
                             <div className="card-img-100 col-sm-2">
                                 <a href={"/books/details/"+this.props.book.id}>
-                                    <img alt={"img"} className="img-responsive shelf-book rounded"  width={"170px"} height={"250px"} src={this.props.book.bookImage}/*th:src={"#{adminPath}+@{/image/book/}+${book.id}+'.png'"*/ />
+                                    <img alt={"img"} className="img-responsive shelf-book rounded "  width={"170px"} height={"250px"} src={this.props.book.bookImage}/*th:src={"#{adminPath}+@{/image/book/}+${book.id}+'.png'"*/ />
                                 </a>
                             </div>
                             <div className="card-body col-sm-8 offset-1">

@@ -23,7 +23,9 @@
     "react-paginate": "^6.3.2",
     "react-responsive-carousel": "^3.1.57",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-validation": "^3.0.7",
+    "validator": "^13.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

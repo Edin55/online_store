@@ -1,6 +1,7 @@
 package com.edinelezi.onlinestore.model.security;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -24,9 +25,6 @@ public class User {
     private String username;
 
 
-    private String firstName;
-    private String lastName;
-
     @NotBlank
     @Size(max = 50)
     @Email
@@ -43,6 +41,19 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+//    private ShoppingCart shoppingCart;
+//
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    private List<UserShipping> userShippingList;
+//
+//
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+//    private List<UserPayment> userPaymentList;
+//
+//    @OneToMany(mappedBy = "user")
+//    private List<Order> orderList;
 
     public User() {
     }
